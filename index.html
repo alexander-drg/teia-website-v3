@@ -94,15 +94,9 @@
       <div class="w-layout-blockcontainer container w-container">
         <div class="hero-header">
           <div style="-webkit-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="tag-wrapper">
-            <div class="elipse hide-mobile"></div>
-            <div class="tag">
-              <p class="text-weight-medium caps">Teia bocanet</p>
-            </div>
-            <div class="elipse hide-mobile"></div>
+            
           </div>
-          <div style="-webkit-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading">
-            <h1 class="heading-1">A Journey into the World of Colors. </h1>
-          </div>
+          
         </div>
       </div>
       <div class="container">
@@ -113,9 +107,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -20%;
 }
 
 /* Desktop Gallery Styles */
+/* Desktop Gallery Styles */
+
+.rt-navbar-wrapper-2 {
+    position: relative;
+    z-index: 1000;
+}
+.desktop-gallery {
+   position: relative;
+  z-index: 1;
+   transform: translateY(70%);
+}
+
+.mobile-gallery {
+   position: relative;
+  z-index: 2;
+   transform: translateY(80%);
+}
+
+
 .desktop-gallery {
     display: none;
 }
@@ -140,37 +154,36 @@
         position: absolute;
         width: 350px;
         height: 450px;
-        border-radius: 1rem;
         overflow: hidden;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         transition: all 0.5s ease-in-out;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    .desktop-gallery .image-card.left {
-        transform: translateX(0) rotate(5deg) translateY(24px);
+    .desktop-gallery .image-card.left,
+    .desktop-gallery .image-card.right {
         z-index: 1;
+        opacity: 0;
     }
 
     .desktop-gallery .image-card.center {
-        transform: translateX(16px) translateY(16px);
         z-index: 2;
-    }
-
-    .desktop-gallery .image-card.right {
-        transform: translateX(32px) translateY(32px) rotate(-5deg);
-        z-index: 1;
+        opacity: 1;
     }
 
     .desktop-gallery .gallery-container:hover .image-card.left {
-        transform: translateX(-100%) rotate(0) translateY(0);
+        transform: translateX(-150%);
+        opacity: 1;
     }
 
     .desktop-gallery .gallery-container:hover .image-card.center {
-        transform: translateX(0) translateY(0);
+        transform: translateX(-50%);
     }
 
     .desktop-gallery .gallery-container:hover .image-card.right {
-        transform: translateX(100%) rotate(0) translateY(0);
+        transform: translateX(50%);
+        opacity: 1;
     }
 }
 
@@ -185,17 +198,16 @@
     position: absolute;
     width: 280px;
     height: 380px;
-    border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: all 0.5s ease-in-out;
-    transform: translateX(16px) translateY(16px);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .mobile-gallery .image-card.active {
     opacity: 1;
-    transform: translateX(0) translateY(0);
     z-index: 2;
 }
 
@@ -204,14 +216,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-}.overlay-link {
-  all: unset; /* ← This resets all default anchor styles */
-  cursor: pointer;
-  display: inline-block;
 }
-
-
 
 .overlay {
     position: absolute;
@@ -236,23 +241,35 @@
     font-size: 2rem;
     font-weight: bold;
 }
+.overlay-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.overlay-link:hover {
+  color: #ffffff; /* change font color for the cards */
+  cursor: pointer;
+}
 
 /* Mobile Animation */
 @media (max-width: 639px) {
     @keyframes carousel {
         0%, 26.66% {
             opacity: 1;
-            transform: translateX(0) translateY(0);
+            transform: translateX(-50%);
             z-index: 2;
         }
         33.33%, 93.33% {
             opacity: 0;
-            transform: translateX(16px) translateY(16px);
+            transform: translateX(-50%);
             z-index: 1;
         }
         100% {
             opacity: 1;
-            transform: translateX(0) translateY(0);
+            transform: translateX(-50%);
             z-index: 2;
         }
     }
@@ -274,21 +291,21 @@
         <div class="desktop-gallery">
             <div class="gallery-container">
                 <div class="image-card left">
-                    <img src="images\05-p-2000.jpg" alt="Mountain landscape">
+                    <img src="images\print.jpg" alt="Mountain landscape">
                     <div class="overlay">
-                      <h2><a href="gallery.html" class="overlay-link">Photography</a></h2>
+                      <h2><a href="gallery.html" class="overlay-link">Print</a></h2>
                     </div>
                 </div>
                 <div class="image-card center">
-                    <img src="images/translucid_green.png" alt="Ocean view">
+                    <img src="images/painting.jpg" alt="Ocean view">
                     <div class="overlay">
-                      <h2><a href="gallery.html" class="overlay-link">Alcohol Ink</a></h2>
+                      <h2><a href="gallery.html" class="overlay-link">Painting</a></h2>
                     </div>
                 </div>
                 <div class="image-card right">
-                    <img src="images/Hidden-Beauties.png" alt="Forest scene">
+                    <img src="images/foto_lens.jpg" alt="Forest scene">
                     <div class="overlay">
-                      <h2><a href="gallery.html" class="overlay-link">Acrylic Paint</a></h2>
+                      <h2><a href="gallery.html" class="overlay-link">Photos</a></h2>
                     </div>
                 </div>
             </div>
@@ -298,21 +315,21 @@
         <div class="mobile-gallery">
             <div class="gallery-container">
                 <div class="image-card active">
-                    <img src="images\05-p-2000.jpg" alt="Mountain landscape">
+                    <img src="images\print.jpg" alt="Mountain landscape">
                     <div class="overlay">
-                      <h2><a href="gallery.html" class="overlay-link">Photography</a></h2>
+                      <h2><a href="gallery.html" class="overlay-link">Print</a></h2>
                     </div>
                 </div>
                 <div class="image-card">
-                    <img src="images/translucid_green.png" alt="Ocean view">
+                    <img src="images/painting.jpg" alt="Ocean view">
                     <div class="overlay">
-                      <h2><a href="gallery.html" class="overlay-link">Alcohol Ink</a></h2>
+                      <h2><a href="gallery.html" class="overlay-link">Painting</a></h2>
                     </div>
                 </div>
                 <div class="image-card">
-                    <img src="images/Hidden-Beauties.png" alt="Forest scene">
+                    <img src="images/foto_lens.jpg" alt="Forest scene">
                     <div class="overlay">
-                      <h2><a href="gallery.html" class="overlay-link">Acrylic Paint</a></h2>
+                      <h2><a href="gallery.html" class="overlay-link">Photos</a></h2>
                     </div>
                 </div>
             </div>
@@ -339,7 +356,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-grid"><img src="images/Hero-Background-Grid.svg" loading="lazy" alt="Hero Grid"></div>
+      
     </div>
   </section>
   <section class="section-logos">
@@ -348,7 +365,7 @@
   <div class="big-gap">
     <div class="works-wrapper">
       <div class="header">
-        <h2 class="heading-2">Showcasing creative and impactful exhibits</h2>
+        <h2 class="heading-2">A journey into the world of colors.</h2>
         <div class="max-width-45ch">
           <p>Discover our curated collections designed to inspire creativity, enrich spaces, and captivate viewers.</p>
         </div>
@@ -365,7 +382,7 @@
                   <div class="w-layout-grid uui-blog06_list">
                     <div class="uui-blog06_item">
                       <a data-w-id="c42d66cf-78ad-e6c9-681c-52d41b54c890" href="gallery.html" class="uui-blog06_image-link w-inline-block">
-                        <div class="uui-blog06_image-wrapper"><img srcset="images/Singuratate-p-500.png 500w, images/Singuratate-p-800.png 800w, images/Singuratate.png 1080w" loading="lazy" sizes="(max-width: 1080px) 100vw, 1080px" src="images/Singuratate.png" alt="" class="uui-blog06_image"></div>
+                        <div class="uui-blog06_image-wrapper"><img srcset="images/ink_new.jpg 500w, images/ink_new.jpg 800w, images/ink_new.jpg 1080w" loading="lazy" sizes="(max-width: 1080px) 100vw, 1080px" src="images/ink_new.jpg" alt="" class="uui-blog06_image"></div>
                       </a>
                       <a href="#" class="uui-blog06_title-link w-inline-block">
                         <h3 class="uui-heading-xsmall">Alcohol ink</h3>
@@ -381,7 +398,7 @@
                     </div>
                     <div class="uui-blog06_item">
                       <a data-w-id="c42d66cf-78ad-e6c9-681c-52d41b54c89f" href="#" class="uui-blog06_image-link w-inline-block">
-                        <div class="uui-blog06_image-wrapper"><img srcset="images/Inceputuri---Copy-p-500.png 500w, images/Inceputuri---Copy-p-800.png 800w, images/Inceputuri---Copy.png 1080w" loading="lazy" sizes="(max-width: 1080px) 100vw, 1080px" src="images/Inceputuri---Copy.png" alt="" class="uui-blog06_image"></div>
+                        <div class="uui-blog06_image-wrapper"><img srcset="images/prints_new.jpg 500w, images/prints_new.jpg 800w, images/prints_new.jpg 1080w" loading="lazy" sizes="(max-width: 1080px) 100vw, 1080px" src="images/prints_new.jpg" alt="" class="uui-blog06_image"></div>
                       </a>
                       <a href="#" class="uui-blog06_title-link w-inline-block">
                         <h3 class="uui-heading-xsmall">Canvas Print</h3>
@@ -397,7 +414,17 @@
                     </div>
                     <div class="uui-blog06_item">
                       <a data-w-id="c42d66cf-78ad-e6c9-681c-52d41b54c8ae" href="#" class="uui-blog06_image-link w-inline-block">
-                        <div class="uui-blog06_image-wrapper"><img srcset="images/sincronism---Copy-Photoroom-p-500.png 500w, images/sincronism---Copy-Photoroom-p-800.png 800w, images/sincronism---Copy-Photoroom-p-1080.png 1080w, images/sincronism---Copy-Photoroom.png 1280w" loading="lazy" sizes="(max-width: 1279px) 100vw, 1280px" src="images/sincronism---Copy-Photoroom.png" alt="" class="uui-blog06_image"></div>
+                        <div class="uui-blog06_image-wrapper"><img 
+  srcset="images/acrylic_new-500.jpg 500w, 
+          images/acrylic_new-800.jpg 800w, 
+          images/acrylic_new-1080.jpg 1080w, 
+          images/acrylic_new.jpg 1280w" 
+  sizes="(max-width: 1279px) 100vw, 1280px" 
+  src="images/acrylic_new.jpg" 
+  loading="lazy" 
+  alt="Acrylic Painting" 
+  class="uui-blog06_image"
+></div>
                       </a>
                       <a href="#" class="uui-blog06_title-link w-inline-block">
                         <h3 class="uui-heading-xsmall">Acrylic Paint</h3>
@@ -413,7 +440,7 @@
                     </div>
                     <div class="uui-blog06_item">
                       <a data-w-id="c42d66cf-78ad-e6c9-681c-52d41b54c8bd" href="#" class="uui-blog06_image-link w-inline-block">
-                        <div class="uui-blog06_image-wrapper"><img srcset="images/05-p-500.jpg 500w, images/05-p-800.jpg 800w, images/05-p-1080.jpg 1080w, images/05-p-1600.jpg 1600w, images/05-p-2000.jpg 2000w, images/05-p-2600.jpg 2600w, images/05-p-3200.jpg 3200w, images/05.JPG 3872w" loading="lazy" sizes="(max-width: 3872px) 100vw, 3872px" src="images/05.JPG" alt="" class="uui-blog06_image"></div>
+                        <div class="uui-blog06_image-wrapper"><img srcset="images/photos_new.jpg 500w, images/photos_new.jpg 800w, images/photos_new.jpg 1080w, images/photos_new.jpg 1600w, images/photos_new.jpg 2000w, images/photos_new.jpg 2600w, images/photos_new.jpg 3200w, images/photos_new.jpg 3872w" loading="lazy" sizes="(max-width: 3872px) 100vw, 3872px" src="images/photos_new.jpg" alt="" class="uui-blog06_image"></div>
                       </a>
                       <a href="#" class="uui-blog06_title-link w-inline-block">
                         <h3 class="uui-heading-xsmall">Photography</h3>
