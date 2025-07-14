@@ -1254,8 +1254,17 @@ blockquote {
 @media (max-width: 767px) {
   .works-wrapper {
     margin-top: 0;
+    transform: translateY(-15%);
   }
 }
+
+@media (max-width: 767px) {
+  .hero-component {
+    transform: translateY(-240%);
+  }
+}
+
+
 
 
 .collection-list {
@@ -1599,6 +1608,15 @@ blockquote {
   padding-bottom: 1.3rem;
   display: flex;
 }
+
+.link-block-navbar,
+.link-block-navbar div,
+.rt-home-three-dropdown-menu {
+  font-weight: 600 !important;
+  color: #2d2f26 !important;
+}
+
+
 
 .link-block-navbar {
   color: #151515;
@@ -3512,7 +3530,8 @@ blockquote {
 }
 
 .rt-home-three-dropdown-menu {
-  color: #404434;
+  font-weight: 600;
+  color: #2d2f26;
   font-family: Satoshi, sans-serif;
   font-size: var(--text-size--regular);
   line-height: var(--text-size--large);
@@ -4668,7 +4687,8 @@ blockquote {
   }
 
   .rt-home-three-dropdown-menu {
-    color: #0b0d0f;
+    font-weight: 600;
+  color: #2d2f26;
     margin-top: 1px;
     line-height: 95%;
   }

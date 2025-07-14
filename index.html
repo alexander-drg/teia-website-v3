@@ -22,12 +22,14 @@
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <header class="rt-style-three-header rt-home-two-header rt-nav-seven">
     <div class="w-layout-blockcontainer rt-container-one-2 rt-container-gap w-container">
       <div class="rt-navbar-wrapper-2">
-        <a href="#" role="link" class="rt-home-three-nav-menu-brand w-nav-brand"><img width="113" height="16" alt="" src="images/logo.png" class="rt-image-height-auto-4"></a>
+        <a href="#" role="link" class="rt-home-three-nav-menu-brand w-nav-brand"><img width="150" height="auto" alt="logo" src="images/logo.png" class="rt-image-height-auto-4"></a>
         <div data-w-id="2487439f-484d-3698-4164-0ab03df1404d" class="rt-nav-menu-link-wrap">
           <a href="index.html" aria-current="page" class="link-block-navbar w-inline-block w--current">
             <div class="text-block-10">Home</div>
@@ -126,7 +128,7 @@
 .mobile-gallery {
    position: relative;
   z-index: 2;
-   transform: translateY(80%);
+   transform: none;
 }
 
 
@@ -232,22 +234,23 @@
     transition: background 0.3s ease;
 }
 
-.overlay:hover {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-}
+
 
 .overlay h2 {
     color: white;
     font-size: 2rem;
     font-weight: bold;
 }
+
 .overlay-link {
-  color: white;
+  font-family: 'Roboto Mono', monospace;
+  color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
   text-decoration: none;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
+
 
 .overlay-link:hover {
   color: #ffffff; /* change font color for the cards */
