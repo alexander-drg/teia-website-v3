@@ -42,6 +42,30 @@
   --border--radius: .2rem;
 }
 
+/* Base: make all links semi-transparent */
+.link-block-navbar div,
+.rt-home-three-dropdown-menu,
+.rt-home-three-dropdown-link {
+  color: #404434;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* Active page link (full opacity) — Webflow adds .w--current */
+.link-block-navbar.w--current div,
+.rt-home-three-dropdown-menu.w--current,
+.rt-home-three-dropdown-link.w--current {
+  opacity: 1;
+}
+
+/* Optional: full opacity on hover */
+.link-block-navbar:hover div,
+.rt-home-three-dropdown-menu:hover,
+.rt-home-three-dropdown-link:hover {
+  opacity: 1;
+}
+
+
 .w-layout-blockcontainer {
   max-width: 940px;
   margin-left: auto;
@@ -3521,7 +3545,7 @@ blockquote {
 }
 
 .rt-home-three-dropdown-link:hover {
-  color: var(--radiant-ui-components-library--color--theme-color);
+  color: #404434 ;
   transform: translate(5px);
 }
 
@@ -3635,11 +3659,11 @@ blockquote {
 }
 
 .uui-footer04_link:hover {
-  color: var(--untitled-ui--gray700);
+  color: #646a51;
 }
 
 .uui-footer04_social-link {
-  color: var(--untitled-ui--gray400);
+  color: #4044347e;
   align-items: center;
   text-decoration: none;
   transition: all .3s;
@@ -3647,7 +3671,7 @@ blockquote {
 }
 
 .uui-footer04_social-link:hover {
-  color: var(--untitled-ui--gray500);
+  color: #646a51;
 }
 
 .uui-footer04_legal-link {
